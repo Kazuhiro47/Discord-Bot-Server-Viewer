@@ -2,10 +2,11 @@
 # @Date:   2017-09-28T10:29:47+02:00
 # @Filename: test.py
 # @Last modified by:   Kazuhiro
-# @Last modified time: 2017-09-28T17:22:08+02:00
+# @Last modified time: 2017-10-03T10:13:37+02:00
 
 import discord
 import asyncio
+import sys
 
 client = discord.Client()
 
@@ -19,7 +20,11 @@ async def on_message(message):
     if message.channel.name.find('spoil') == -1:
         var = message.timestamp
         datetime_aff = str(var.year) + "/" + str(var.month) + "/" + str(var.day) + " " + str(var.hour) + "h" + str(var.minute) + 'm' + str(var.second) + "s"
-        print(datetime_aff + " | " + message.channel.name + " > " + message.author.name + ": " + message.content)
+        try:
+            print(datetime_aff + " | " + message.channel.name + " > " + message.author.name + ": " + message.content)
+        except UnicodeEncodeError:
+            msg = datetime_aff + " | " + message.channel.name + " > " + message.author.name + ": " + message.content
+            print(msg.encode(sys.stdout.encoding, errors='replace'))
 
 token = '' # insert your token here
 
