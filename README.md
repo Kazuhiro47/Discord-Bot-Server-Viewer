@@ -8,6 +8,10 @@ You need to install discord.py by typing in a terminal :
     pip install discord.py
 
 
-Enter your token by editing the file "main.py" and launch it :
+Enter your token by editing the file "receive.py" and "send.py" launch it :
 
-    python main.py
+    python receive.py
+
+
+receive.py allows you to see the messages being typed on the server
+send.py allows you to send messages in a specific channel
