@@ -9,7 +9,7 @@ from sys import argv
 
 import discord
 
-from DISC_b.get_channel_id import *
+from get_channel_id import *
 
 if len(argv) != 2:
     channel_init = 'general'
