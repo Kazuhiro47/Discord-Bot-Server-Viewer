@@ -9,7 +9,7 @@ from sys import argv
 
 import discord
 
-from DISC_b.get_channel_id import *
+from get_channel_id import *
 
 if len(argv) != 2:
     channel_init = 'general'
@@ -32,21 +32,21 @@ async def my_background_task():
     while not client.is_closed:
         counter += 1
         msg = input(channel_name + ' > ')
-        if msg == '' or msg == '!help':
+        if msg == '' or msg == '&help':
             print(help_msg)
             continue
-        if msg.startswith('!'):
-            if msg == '!quit':
+        if msg.startswith('&'):
+            if msg == '&quit':
                 exit(0)
-            elif msg.startswith('!list_chan'):
+            elif msg.startswith('&list_chan'):
                 list_channels(client)
                 continue
-            elif msg.startswith('!change='):
+            elif msg.startswith('&change='):
                 splitted = msg.split('=')
                 channel = discord.Object(id=get_channel_id(splitted[1], client))
                 channel_name = splitted[1]
                 continue
-            elif msg.startswith('!chan='):
+            elif msg.startswith('&chan='):
                 splitted = msg.split('=')
                 channel = discord.Object(id=get_channel_id(splitted[1], client))
                 channel_name = splitted[1]
